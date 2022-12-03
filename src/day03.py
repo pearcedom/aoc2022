@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-from collections import Counter
-
 alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 with open("input/day03.txt") as f:
