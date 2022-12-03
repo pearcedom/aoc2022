@@ -2,6 +2,9 @@
 
 from collections import Counter
 
+def unique(x):
+    return list(set(x))
+
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 alphabet_scores = {}
 for (i, j) in enumerate(alphabet):
@@ -14,12 +17,12 @@ with open("input/day03.txt") as f:
     res = 0
     for i in x:
         mid = len(i) // 2 
-        counts = Counter(list(Counter(i[0:mid])) + list(Counter(i[mid:len(i)+1])))
+        counts = Counter(unique(i[0:mid]) + unique(i[mid:len(i)+1]))
         res += alphabet_scores[counts.most_common(1)[0][0]]
     print("Part 1:", res)
 
     res = 0
     for i in range(0, len(x), 3):
-        counts = Counter(list(Counter(x[i])) + list(Counter(x[i+1])) + list(Counter(x[i+2])))
+        counts = Counter(unique(x[i]) + unique(x[i+1]) + unique(x[i+2]))
         res += alphabet_scores[counts.most_common(1)[0][0]]
     print("Part 2:", res)
